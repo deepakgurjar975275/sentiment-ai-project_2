@@ -91,16 +91,15 @@ def login():
         return jsonify({"status": "success"})
     else:
         return jsonify({"status": "fail"}), 401
-if __name__ == "__main__":
 import os
-
-port = int(os.environ.get("PORT", 5000))
-
-app.run(host="0.0.0.0", port=port)
-
 import requests
 
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
 
 def ask_gpt(question, data):
     prompt = f"""
